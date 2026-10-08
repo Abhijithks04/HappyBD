@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Bhavuzzzz ✨</title>
+<meta name="description" content="A little birthday surprise, made just for you.">
+<meta name="theme-color" content="#FFF1E6">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ░░ loading ░░ -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader-candle" aria-hidden="true">
+    <span class="lc-glow"></span>
+    <span class="lc-flame"></span>
+    <span class="lc-wick"></span>
+    <span class="lc-body"></span>
+    <span class="lc-drip"></span>
+  </div>
+  <p class="loader-text">Preparing your little surprise<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+</div>
+
+<a class="skip" href="#app">Skip to the surprise</a>
+
+<!-- ░░ top bar ░░ -->
+<header class="hud" id="hud">
+  <ol class="progress" id="progress" aria-label="Surprise progress"></ol>
+  <div class="hud-right">
+    <button class="chip chip-edit" type="button" data-edit="" aria-label="Edit this birthday page">✎ <span>Edit</span></button>
+    <button class="chip chip-own" type="button" data-make-own="">✨ <span>Make your own</span></button>
+    <div class="music" role="group" aria-label="Music">
+      <button class="music-play" id="musicBtn" type="button" aria-pressed="false" aria-label="Play music">
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="music-label">♪ Music</span>
+      </button>
+      <button class="music-mute" id="muteBtn" type="button" aria-pressed="false" aria-label="Mute sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5h3.2L12 5.6v12.8l-4.8-3.9H4z"></path><path class="wave" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.6a7.6 7.6 0 0 1 0 10.8"></path><path class="cross" d="M16 9.5l5 5M21 9.5l-5 5"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+<div class="cursor-layer" id="cursorLayer" aria-hidden="true"></div>
+
+<main id="app" class="app">
+
+  <!-- ═════════ 1 · ENVELOPE ═════════ -->
+  <section class="scene s-envelope" data-scene="1" data-tone="light" aria-labelledby="t1">
+    <div class="deco" aria-hidden="true">
+      <span class="plx d2 e-cloud1"><img class="sticker sticker-drift" data-asset="assets/stickers/sticker-cloud.webp" alt=""></span>
+      <span class="plx d1 e-cloud2"><img class="sticker sticker-drift slow" data-asset="assets/stickers/sticker-cloud.webp" alt=""></span>
+      <span class="plx d3 e-star1"><img class="sticker sticker-twinkle" data-asset="assets/stickers/sticker-star.webp" alt=""></span>
+      <span class="plx d2 e-spark1"><img class="sticker sticker-twinkle late" data-asset="assets/stickers/sticker-sparkle.webp" alt=""></span>
+      <span class="plx d3 e-spark2"><img class="sticker sticker-twinkle" data-asset="assets/stickers/sticker-sparkle.webp" alt=""></span>
+      <span class="plx d1 e-heart"><img class="sticker sticker-float" data-asset="assets/stickers/sticker-heart.webp" alt=""></span>
+      <span class="plx d2 e-ribbon"><img class="sticker sticker-sway" data-asset="assets/stickers/sticker-ribbon.webp" alt=""></span>
+      <span class="dust"></span>
+    </div>
+
+    <div class="stage env-stage">
+      <div class="env-copy">
+        <p class="eyebrow rv rv-1">✦ A little Chuttumani <span aria-hidden="true">✦</span></p>
+        <h1 class="display rv rv-2" id="t1" tabindex="-1">There’s something <em>for you </em></h1>
+        <p class="lede rv rv-3">A tiny birthday surprise, I made just for you.</p>
+        <div class="env-actions rv rv-4">
+          <button class="btn btn-seal" id="openBtn" type="button">
+            <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.3s-7.4-4.4-7.4-10.1A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7.4 2.6c0 5.7-7.4 10.1-7.4 10.1z"></path></svg></span>
+            <span>Open your surprise ✨</span>
+          </button>
+          <button class="chip chip-make" type="button" data-edit="basics">✎ Make it yours</button>
+        </div>
+      </div>
+
+      <div class="envelope rv rv-2" id="envelope" aria-hidden="true">
+        <span class="env-shadow"></span>
+        <div class="env-card">
+          <span class="env-card-hi">for</span>
+          <span class="env-card-name" data-bind="birthdayName">Bhavuzzzz</span>
+          <span class="env-card-stars">✦ ✧ ✦</span>
+        </div>
+        <img class="env-img sticker" data-asset="assets/stickers/sticker-envelope.webp" alt="">
+        <img class="env-peek env-peek-bear sticker" data-asset="assets/stickers/sticker-bear.webp" alt="">
+        <img class="env-peek env-peek-rabbit sticker" data-asset="assets/stickers/sticker-rabbit.webp" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 2 · THE DARK ROOM ═════════ -->
+  <section class="scene s-dark" data-scene="2" data-tone="dark" aria-labelledby="t2">
+    <div class="night-sky" id="nightSky" aria-hidden="true"></div>
+    <div class="deco" aria-hidden="true">
+      <span class="plx d1 n-moon"><img class="sticker sticker-drift slow" data-asset="assets/stickers/sticker-moon.webp" alt=""></span>
+      <span class="plx d2 n-bear"><img class="sticker sleepy-bear" data-asset="assets/stickers/sticker-bear-sleepy.webp" alt=""></span>
+      <span class="plx d3 n-cloud"><img class="sticker sticker-drift" data-asset="assets/stickers/sticker-cloud.webp" alt=""></span>
+    </div>
+
+    <div class="pullcord" id="pullcord" aria-hidden="true">
+      <span class="cord"></span>
+      <span class="bulb" style="pointer-events: auto; cursor: pointer;"><i></i></span>
+    </div>
+
+    <div class="stage dark-stage">
+      <p class="whisper rv rv-1">Shhh…🤫</p>
+      <h2 class="display rv rv-3" id="t2" tabindex="-1">The room is waiting for you.</h2>
+      <p class="lede rv rv-4">Someone left the lights off on purpose.</p>
+      <div class="rv rv-5">
+        <button class="btn btn-glow" id="lightsBtn" type="button">Turn on the lights ✨</button>
+      </div>
+    </div>
+    <div class="light-rays" aria-hidden="true"></div>
+  </section>
+
+  <!-- ═════════ 3 · BIRTHDAY ROOM ═════════ -->
+  <section class="scene s-room" data-scene="3" data-tone="light" aria-labelledby="t3">
+    <div class="wall" aria-hidden="true"></div>
+    <img class="bunting sticker" data-asset="assets/stickers/sticker-bunting.webp" alt="" aria-hidden="true">
+    <svg class="fairy" id="fairy" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+      <path id="fairyPath" d="M-10 18 Q 250 118 500 40 T 1010 30"></path>
+    </svg>
+    <div class="fairy-bulbs" id="fairyBulbs" aria-hidden="true"></div>
+
+    <div class="stage room-stage">
+      <div class="room-copy">
+        <p class="eyebrow rv rv-1">Look who’s having a birthday…🙈</p>
+        <h2 class="display name-line rv rv-2" id="t3" tabindex="-1">
+          <span class="nl-hb">Happie Birthdayyy,</span>
+          <span class="nl-name"><span class="bday-name" id="bdayName"></span></span>
+        </h2>
+        <p class="date-pill rv rv-3"><span class="dp-dot" aria-hidden="true"></span><span data-bind="birthdayDate">09 October</span></p>
+        <div class="rv rv-4">
+          <button class="btn" type="button" data-next="">There’s more 🎀</button>
+        </div>
+      </div>
+
+      <div class="room-scene" aria-hidden="true">
+        <span class="floor"></span>
+        <span class="plx d1 r-balloons"><img class="sticker balloon-float" data-asset="assets/stickers/sticker-balloon-group.webp" alt=""></span>
+        <span class="plx d2 r-balloons2"><img class="sticker balloon-float late" data-asset="assets/stickers/sticker-balloon-group.webp" alt=""></span>
+        <div class="table">
+          <span class="table-top"></span>
+          <span class="table-cloth"></span>
+          <span class="table-leg l"></span><span class="table-leg r"></span>
+          <img class="t-flowers sticker sticker-sway" data-asset="assets/stickers/sticker-flowers.webp" alt="">
+          <img class="t-gift sticker sticker-wiggle" data-asset="assets/stickers/sticker-gift.webp" alt="">
+        </div>
+        <span class="plx d3 r-bear"><img class="sticker sticker-wave" data-asset="assets/stickers/sticker-bear-wave.webp" alt=""></span>
+        <span class="plx d2 r-rabbit"><img class="sticker sticker-bounce" data-asset="assets/stickers/sticker-rabbit.webp" alt=""></span>
+        <span class="r-note">yay, you’re here!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 4 · CAKE TIME ═════════ -->
+  <section class="scene s-cake" data-scene="4" data-tone="light" aria-labelledby="t4">
+    <div class="deco" aria-hidden="true">
+      <span class="plx d2 c-spark1"><img class="sticker sticker-twinkle" data-asset="assets/stickers/sticker-sparkle.webp" alt=""></span>
+      <span class="plx d1 c-star"><img class="sticker sticker-twinkle late" data-asset="assets/stickers/sticker-star.webp" alt=""></span>
+      <span class="plx d3 c-heart"><img class="sticker sticker-float" data-asset="assets/stickers/sticker-heart.webp" alt=""></span>
+    </div>
+    <div class="stage cake-stage">
+      <div class="cake-copy">
+        <p class="eyebrow rv rv-1">Cake time</p>
+        <h2 class="display rv rv-2" id="t4" tabindex="-1"><span id="cakeTitle">Make the first cut ✨</span></h2>
+        <p class="lede rv rv-3" id="cakeHint">Swipe down across the cake, top to bottom.</p>
+        <div class="cake-done" id="cakeDone" hidden>
+          <button class="btn" type="button" data-next="">Make a wish 🌙</button>
+        </div>
+      </div>
+
+      <div class="cake-zone rv rv-2" id="cakeZone" tabindex="0" role="button" aria-describedby="cakeHint cakeKeys" aria-label="Birthday cake. Swipe down across it to cut, or press Enter.">
+        <div class="cake" id="cake">
+          <div class="cake-inside"><i></i><i></i><i></i></div>
+          <div class="cake-half left"></div>
+          <div class="cake-half right"></div>
+        </div>
+        <span class="cake-plate"></span>
+        <div class="cut-guide" id="cutGuide"><span class="knife"></span></div>
+        <svg class="cut-svg" id="cutSvg"><path id="cutPath" d=""></path></svg>
+        <span class="sr-only" id="cakeKeys">Keyboard: press Enter or Space to cut the cake.</span>
+      </div>
+    </div>
+    <template id="cakeTpl">
+      <div class="ck">
+        <div class="ck-candles">
+          <i class="candle c1"><b class="flame"></b></i><i class="candle c2"><b class="flame"></b></i><i class="candle c3"><b class="flame"></b></i><i class="candle c4"><b class="flame"></b></i>
+        </div>
+        <div class="ck-berries"><i></i><i></i><i></i><i></i></div>
+        <div class="ck-tier t3"><span class="frost"></span></div>
+        <div class="ck-tier t2"><span class="frost"></span><span class="pearls"></span></div>
+        <div class="ck-tier t1"><span class="frost"></span><span class="sprinkles"></span></div>
+        <div class="ck-board"></div>
+      </div>
+    </template>
+  </section>
+
+  <!-- ═════════ 5 · MAKE A WISH ═════════ -->
+  <section class="scene s-wish" data-scene="5" data-tone="dark" aria-labelledby="t5">
+    <div class="wish-night" aria-hidden="true"><div class="night-sky" id="wishSky"></div></div>
+    <div class="glow-field" id="glowField" aria-hidden="true"></div>
+    <div class="wish-veil" aria-hidden="true"></div>
+    <div class="stage wish-stage">
+      <div class="wish-art rv rv-2" aria-hidden="true">
+        <span class="wish-halo"></span>
+        <img class="wish-cake sticker" data-asset="assets/stickers/sticker-cake.webp" alt="">
+        <span class="candle-glow"></span>
+        <img class="wish-bear sticker sticker-float slow" data-asset="assets/stickers/sticker-bear-wish.webp" alt="">
+      </div>
+      <div class="wish-copy">
+        <h2 class="display rv rv-1" id="t5" tabindex="-1"><span id="wishTitle">Close your eyes…</span></h2>
+        <p class="lede rv rv-3" id="wishSub">Make a little wish for the year ahead.</p>
+        <div class="rv rv-4">
+          <button class="btn" id="wishBtn" type="button">I made my wish ✨</button>
+        </div>
+      </div>
+    </div>
+    <div class="wish-float" id="wishFloat" aria-hidden="true"></div>
+  </section>
+
+  <!-- ═════════ 6 · MEMORIES ═════════ -->
+  <section class="scene s-memories" data-scene="6" data-tone="light" aria-labelledby="t6">
+    <div class="stage mem-stage">
+      <header class="mem-head">
+        <img class="mem-camera sticker sticker-float rv rv-1" data-asset="assets/stickers/sticker-camera.webp" alt="" aria-hidden="true">
+        <h2 class="display rv rv-2" id="t6" tabindex="-1">Some moments are worth keeping forever.</h2>
+        <p class="lede hand rv rv-3" data-bind="memoryMessage">Here’s to all the laughs, chaos, late-night talks and little moments.</p>
+      </header>
+      <div class="polaroids" id="polaroids"></div>
+      <div class="mem-foot">
+        <button class="btn" type="button" data-next="">Read your letter 💌</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 7 · LETTER ═════════ -->
+  <section class="scene s-letter" data-scene="7" data-tone="light" aria-labelledby="t7">
+    <div class="stage letter-stage">
+      <article class="letter rv rv-1">
+        <img class="l-flowers sticker sticker-sway" data-asset="assets/stickers/sticker-flowers.webp" alt="" aria-hidden="true">
+        <img class="l-ribbon sticker" data-asset="assets/stickers/sticker-ribbon.webp" alt="" aria-hidden="true">
+        <img class="l-star sticker sticker-twinkle" data-asset="assets/stickers/sticker-star.webp" alt="" aria-hidden="true">
+        <p class="l-kicker">a letter, just for you</p>
+        <h2 class="letter-title" id="t7" tabindex="-1">For you, <span data-bind="birthdayName">Bhavuzzzz</span></h2>
+        <svg class="l-squiggle" viewBox="0 0 160 12" aria-hidden="true"><path d="M2 7c12-8 20 6 32 0s20-8 32 0 20 6 32 0 20-8 32 0 16 4 26-1"></path></svg>
+        <div class="letter-body scrolls" id="letterBody" tabindex="0" aria-label="Your letter"></div>
+        <p class="signoff">with love,<br><span class="sig" data-bind="senderName">Abhijuuuu</span></p>
+      </article>
+      <div class="letter-foot rv rv-3">
+        <button class="btn" type="button" data-next="">One last thing 🎂</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 8 · FINALE ═════════ -->
+  <section class="scene s-final" data-scene="8" data-tone="light" aria-labelledby="t8">
+    <div class="sky-rise" id="skyRise" aria-hidden="true"></div>
+    <div class="stage final-stage">
+      <img class="final-bear sticker sticker-wave rv rv-1" data-asset="assets/stickers/sticker-bear-wave.webp" alt="" aria-hidden="true">
+      <h2 class="final-title rv rv-2" id="t8" tabindex="-1">Happy Birthday,<br><span data-bind="birthdayName">Bhavuzzzz</span>! <span class="cake-emoji">🎂</span></h2>
+      <p class="lede rv rv-3">May this year bring you countless little reasons to smile.</p>
+      <p class="final-from hand rv rv-4">— with love, <span data-bind="senderName">Abhijuuuu...</span></p>
+      <div class="final-actions rv rv-5">
+        <button class="btn btn-cream" id="replayBtn" type="button">Replay the surprise ↻</button>
+        <button class="chip chip-make" type="button" data-edit="send">✎ Make one for someone</button>
+        <button class="btn" type="button" data-make-own="">Make one for someone ✨</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ░░ editor ░░ -->
+<div class="editor" id="editor" hidden>
+  <div class="ed-scrim" data-ed-close=""></div>
+  <aside class="ed-panel" role="dialog" aria-modal="true" aria-labelledby="edTitle">
+    <header class="ed-head">
+      <div>
+        <p class="ed-kicker">make it yours</p>
+        <h2 id="edTitle">Birthday details</h2>
+      </div>
+      <button class="ed-x" type="button" data-ed-close="" aria-label="Close editor">✕</button>
+    </header>
+    <div class="ed-body">
+      <p class="ed-note" id="edNote">Everything saves on this device only. Photos never leave your browser unless you download the finished card.</p>
+      <p class="ed-views" id="edViews" hidden></p>
+
+      <fieldset data-sec="basics">
+        <legend>The birthday person</legend>
+        <label class="field"><span>Their name</span><input data-k="birthdayName" maxlength="28" autocomplete="off"></label>
+        <label class="field"><span>Birthday date</span><input data-k="birthdayDate" maxlength="32" placeholder="28 September" autocomplete="off"></label>
+        <label class="field"><span>From (your name)</span><input data-k="senderName" maxlength="40" autocomplete="off"></label>
+      </fieldset>
+
+      <fieldset data-sec="memories">
+        <legend>Memories <small>(up to 6 photos)</small></legend>
+        <label class="field"><span>Line under the heading</span><textarea data-k="memoryMessage" rows="2" maxlength="180"></textarea></label>
+        <div class="ed-photos" id="edPhotos"></div>
+        <button class="mini-btn" type="button" id="edAddPhoto">＋ Add a memory</button>
+      </fieldset>
+
+      <fieldset data-sec="letter">
+        <legend>Your letter</legend>
+        <label class="field"><span>Message (leave a blank line between paragraphs)</span><textarea data-k="personalMessage" rows="9"></textarea></label>
+      </fieldset>
+
+      <fieldset data-sec="music">
+        <legend>Music</legend>
+        <p class="ed-small" id="edMusicName">Using the built-in song.</p>
+        <div class="ed-row">
+          <label class="mini-btn file-btn">Choose a song<input type="file" accept="audio/*" id="edMusicFile" hidden></label>
+          <button class="mini-btn ghost" type="button" id="edMusicReset">Use the built-in song</button>
+        </div>
+      </fieldset>
+
+      <fieldset data-sec="send">
+        <legend>Save &amp; send</legend>
+        <div class="ed-grid">
+          <button class="mini-btn" type="button" id="edLink">Copy share link</button>
+          <button class="mini-btn" type="button" id="edDownload">Download my card</button>
+          <button class="mini-btn" type="button" id="edEditLink" hidden>Copy private edit link</button>
+        </div>
+        <p class="ed-small" id="edSendNote">The link carries your words only. <strong>Download my card</strong> makes one .html file with the words, photos and song inside: send that file and it opens as the finished surprise.</p>
+        <p class="ed-small" id="edDownloadNote"></p>
+        <button class="mini-btn ghost danger" type="button" id="edReset">Start over</button>
+      </fieldset>
+    </div>
+    <footer class="ed-foot">
+      <button class="btn btn-cream" type="button" id="edPreview">Preview ▶</button>
+      <button class="btn" type="button" id="edSave">Save ♡</button>
+    </footer>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<audio id="bgm" loop preload="none" src="assets/music/birthday.mp3"></audio>
+
+<!-- "sent": true opens the page as the finished surprise (no editor buttons).
+     Delete it, or open index.html#edit, to bring the editor back. -->
+<script type="application/json" id="bs-preset">{"sent": true}</script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
